@@ -1,4 +1,253 @@
 
+<a name="0.1.1"></a>
+## [0.1.1](https://github.com/prologic/twtxt/compare/0.1.0...0.1.1) (2020-10-20)
+
+### Bug Fixes
+
+* Fix Follows/FollowedBy/Muted for external profiles
+* Fix followers view for external profiles
+* Fix bad copy/paste
+* Fix Docker build
+* Fix title of twt permalinks
+* Fix generate Make target to run rice to embed the assets __after__ minification/bundling
+* Fix size of RSS Icon on External Profile view
+* Fix avatar for external profiles when no avatar found
+* Fix size of icss-rss icon for externals feeds without an avatar
+* Fix color of multimedia upload buttons
+* Fix bug in /settings view
+* Fix more UI/UX things on the Web App with better CSS
+* Fix typo
+* Fix spacing around icons for Post/Publish button ([#233](https://github.com/prologic/twtxt/issues/233))
+* Fix potential session cookie bug where Path was not explicitly set
+* Fix name of details settings tab for Pod Management
+* Fix name of details settings tab for Pod Management
+* Fix /report view to work anonymously without a user account
+* Fix conversation bug caused by user filter (mute user feature)
+* Fix a bug with User.Filter()
+* Fix wording in Mute / Report User text
+* Fix grammar on /register view
+* Fix link to /abuse page
+* Fix JS error
+* Fix og:description meta tag
+* Fix a few bugs with OpenGraph tag generation
+* Fix URLForExternalProfile links and typo ([#224](https://github.com/prologic/twtxt/issues/224))
+* Fix subject bug causing conversations to fork ([#217](https://github.com/prologic/twtxt/issues/217))
+* Fix JS bug with persisting title/text fields
+* Fix API Signing Key ([#212](https://github.com/prologic/twtxt/issues/212))
+* Fix video upload quality by disabling rescaling ([#205](https://github.com/prologic/twtxt/issues/205))
+* Fix structtag for config ([#203](https://github.com/prologic/twtxt/issues/203))
+* Fix old missing twts missing from the archive from local users and feeds
+* Fix older Twt Blog posts whoose Twts has been archived (and missing? bug?)
+* Fix MediaHandler to return a Media Not Found for non-existent media rather than a 500 Internal Server Error
+* Fix build ([#198](https://github.com/prologic/twtxt/issues/198))
+* Fix responsive video size on mobile ([#195](https://github.com/prologic/twtxt/issues/195))
+* Fix video aspect ratio and scaling ([#191](https://github.com/prologic/twtxt/issues/191))
+* Fix Range Requests for /media/* ([#190](https://github.com/prologic/twtxt/issues/190))
+* Fix video display to use block style inside paragraphs ([#189](https://github.com/prologic/twtxt/issues/189))
+* Fix missing names to feeds
+* Fix links to external feeds
+* Fix ExpandTags() function so links to Github issue comments work and add unit tess ([#176](https://github.com/prologic/twtxt/issues/176))
+* Fix PublishBlogHandler(o and fix line endings so rendering happens correctly
+* Fix incorrect locking used in GetByPrefix()
+* Fix blogs cache bug
+* Fix logic for when to attempt to send webmentions for mentions
+* Fix duplicate [@mentions](https://github.com/mentions) in reply (Fixes [#167](https://github.com/prologic/twtxt/issues/167))
+* Fix concurrency bug in cache.GetByPrefix()
+* Fix content-type and set charset=utf-8
+* Fix wrapping behaviour and remove warp=hard
+* Fix blogs cache to be concurrenct safe too
+* Fix global feed cache concurrency bug
+* Fix all invalid uses of footer inside hgroup and make all hgroups consistently use h2/h3
+* Fix regex patterns for valid username and feed names and mention syntax
+* Fix and restore full subjet in twt replies ([#163](https://github.com/prologic/twtxt/issues/163))
+* Fix the pager (properly)
+* Fix bug with pager (temporary fix)
+* Fix nil pointer in map assignment bug
+* Fix cli build nad refactor username/password prompt handling
+* Fix the CSS/JS bundled assets with new minify tool (with bug fixes)
+* Fix bug in /settings with incorrect call to .Profile()
+* Fix date/time shown on blog posts (remove time)
+* Fix metric naming consistency feed_sources -> cache_sources ([#155](https://github.com/prologic/twtxt/issues/155))
+* Fix duplicate tags and mentions ([#154](https://github.com/prologic/twtxt/issues/154))
+* Fix content-negotiation for image/webp
+* Fix ExpandMentions()
+* Fix dns issues in container and force Go to use cgo resolver
+* Fix CI
+* Fix feed cache bug not storing Last-Modified and thereby not respecting caching
+* Fix inconsistency in Syndication and Profile views accessing feed fiels directly instead of by the cache
+* Fix CI
+* Fix Dockerfile with missing webmention sources
+* Fix webmention handling to be more robust and error proof
+* Fix AvatarHandler that was incorrectly encoding the auto-generated as image/webp when image/png was asked for
+* Fix bug in /mentions and dedupe twts displayed
+* Fix bug causing permalink(s) on fresh new twts to 404 when linked to but not in the local pod's cache
+* Fix /mentions view logic (ooops)
+* Fix bug in register user on fresh pods with no directory structure in place yet
+* Fix typo
+* Fix bug
+* Fix ordering of twts post cache ttl and archival
+* Fix an index out of bounds bugs
+* Fix the logic for Max Cache Items (whoops)
+* Fix bug in ParseFile() which _may_ cause all local and user twts to be considered old
+* Fix UX perf of posting and perform async webmentions instead
+* Fix bugs with followers/folowing view post external feed integration
+* Fix session leadkage by not calling SetSession() on newly created sessions (only when we actually store session data)
+* Fix leaking sessions and clean them up on startup and only persist sessions to store for logged in users with an account
+* Fix external avatar, don't set a Twter.Avatar is none was foudn
+* Fix build
+* Fix bug with caching Twter.URL for external feeds
+* Fix isLocal check in proile template
+* Fix more bus
+* Fix Twtter caching in feed cache cycles
+* Fix Twtxt URL of externalProfile view
+* Fix several bugs to do with external profiles (I'm tired :/)
+* Fix typo
+* Fix bug with DownloadImage()
+* Fix computed external avatar URIs
+* Fix external avatar negogiation
+* Fix old user avatars (proper)
+* Fix profile avatars
+* Fix profile bug
+* Fix Dockerfile (again)
+* Fix Dockerfile adding missing minify tool
+* Fix Edit on Github page link
+* Fix bug in #hashtag searching showing duplicates twts in results
+* Fix the global feed_cache_size count
+* Fix profile view and make Reply action available on profile views too
+* Fix typo
+* Fix bug in theme so null theme defaults to auto
+* Fix feed_cache_size metric bug (missed counting already-cached items)
+* Fix bug in profile view re ShowConfig for profileLinks
+* Fix another memory optimization and remove another cache.GetAll() call
+* Fix media upload image resize bug
+* Fix caching bug with /avatar endpoint
+* Fix similar bug to [#124](https://github.com/prologic/twtxt/issues/124) for editing last twt
+* Fix bug in feed cache for local twts
+* Fix bug in feed cache dealing with empty feeds or null urls
+* Fix media uploads to only resize images if image > UploadOptions.ResizeW
+* Fix session storage leakage and delete/expunge old sessions
+* Fix memory allocation bloat on retrieving local twts from cache
+* Fix the glitchy theme-switcher that causes unwanted flicker effects (by removing it!)
+* Fix populating textarea when reply button is clicked for more than one time. ([#124](https://github.com/prologic/twtxt/issues/124))
+* Fix repository name in Docker GHA workflow
+* Fix database fragmentation and merge on startup
+* Fix local twts lookup  to be O(n) where n is the no. of source urls (not total twts in cache)
+* Fix image handling and auto-orient images according to their EXIF orientation tag
+* Fix panic in PageHandler() -- not safe to reuse the markdown parser, etc
+
+### Features
+
+* Add Follows/FollowedBy attributes to user profiles
+* Add footnote parsing for Twt Blogs
+* Add HardLineBreak and NoEmptyLineBeforeBlock to Markdown parser options
+* Add protection against brute force login attempts at user accounts ([#241](https://github.com/prologic/twtxt/issues/241))
+* Add FilterTwts to conversation view and treat /conv URIs a bit like /twt (permalink) ones
+* Add a RealIP middleware to capture the real ip of clients when we're behind a proxy
+* Add better page titles to improve SEO
+* Add /api/v1/conv ConversationEndpoint() to API
+* Add DEBUG=1 capability to Makefile for debug builds with real-time static (css/js/img) asset modifications
+* Add missing FilterTwts() calls to API
+* Add Muted property to Profile objects in ProfileResposne for the API ([#235](https://github.com/prologic/twtxt/issues/235))
+* Add improved CSS for the timeline view
+* Add feed validation to Follow requests from Web App and API to avoid invalid feeds ([#228](https://github.com/prologic/twtxt/issues/228))
+* Add /mute and /unmute API endpoints ([#230](https://github.com/prologic/twtxt/issues/230))
+* Add /support and /report API endpoints ([#231](https://github.com/prologic/twtxt/issues/231))
+* Add switch on /register view to encourage new users to read the community guidelines and agree to them (EULA)
+* Add support for Pod Owners to manage users (add/delete) ([#227](https://github.com/prologic/twtxt/issues/227))
+* Add a fast-path to User.Filter() when .muted is of length 0
+* Add support for muting/unmuting intolerable users ([#226](https://github.com/prologic/twtxt/issues/226))
+* Add text to /register view that links to the /abuse page
+* Add blank Abuse Policy (to be filled out)
+* Add OpenGraph Meta tags to Twt Permalinks ([#225](https://github.com/prologic/twtxt/issues/225))
+* Add support for uploading audio media ([#222](https://github.com/prologic/twtxt/issues/222))
+* Add MarkdownText field to Twt ([#223](https://github.com/prologic/twtxt/issues/223))
+* Add Tags and Subject as dynamic fields to Twt.MarshalJSON() for API clients ([#219](https://github.com/prologic/twtxt/issues/219))
+* Add support for managing a pod's configuration as a pod owner ([#170](https://github.com/prologic/twtxt/issues/170))
+* Add Hash to Twt and Slug to Twter outputs when Marshalled as JSON for the API ([#206](https://github.com/prologic/twtxt/issues/206))
+* Add archive_dupe counter
+* Add support for persisting Title and Text in Twts and Twt Blogs to local storage ([#193](https://github.com/prologic/twtxt/issues/193))
+* Add support for auto-generating poster thumbnails for uploaded videos
+* Add playsinline as allowed attr on video elements
+* Add ffmeg to Dockerfile runtime image  and remove debug loggging ([#188](https://github.com/prologic/twtxt/issues/188))
+* Add support for older video media (locally) ([#187](https://github.com/prologic/twtxt/issues/187))
+* Add support for video uploads and hosting ([#186](https://github.com/prologic/twtxt/issues/186))
+* Add blogs, archived and cache stats and cache_blogs to metrics
+* Add BlogPost PublishedAt and Modified timestamps
+* Add support for editing twt blog posts ([#171](https://github.com/prologic/twtxt/issues/171))
+* Add missing mu.Lock() for loading older twts cache
+* Add support for newlines in Twts (short-form) by using Unicode LS (\u2028) to encode them ([#166](https://github.com/prologic/twtxt/issues/166))
+* Add Timeline navbar item and cleanup Navbar
+* Add support for editing/deleting your last Twt in a Conversation view
+* Add Ctrl+Enter to Post a new Twt
+* Add link to Blog on Twts associated with a Twt Blog Post
+* Add formatDateTime template function to shorten the human display of Twt posted date/time shorter when it wasn't that long ago
+* Add a border around avatar images
+* Add support for style attr on some HTML elements as an option for some users
+* Add integrated support for conversations ([#161](https://github.com/prologic/twtxt/issues/161))
+* Add a O(1) lookup for a types.Twt by hash in the global feed cache (cahced on demand)
+* Add /blogs view to display all twt blog posts for an author ([#160](https://github.com/prologic/twtxt/issues/160))
+* Add unit tests for types.Twt.Subject() and fix the regex ([#157](https://github.com/prologic/twtxt/issues/157))
+* Add unit tests for types.Feed ([#156](https://github.com/prologic/twtxt/issues/156))
+* Add a note about having to be logged in to comment on blog posts
+* Add better UI/UX around the blog view with comments in reverse order and some nice headings
+* Add support for long-form posts (blog posts) with integrated twt(s). ([#152](https://github.com/prologic/twtxt/issues/152))
+* Add remote mention syntax [@user](https://github.com/user)[@domain](https://github.com/domain) ([#151](https://github.com/prologic/twtxt/issues/151))
+* Add twtd_server_sessions metric
+* Add Token model and view for managing API Tokens ([#135](https://github.com/prologic/twtxt/issues/135))
+* Add vendored version of github.com/prologic/webmention since it has detracted slightly from standard webmention handling
+* Add a Remember Me to /login view
+* Add a new SessionStore that is a caching/persistent store
+* Add MergeStoreJob to merge the store once per day
+* Add local twts to mentions view in addition to feeds the user follows
+* Add a DiskArchver that implements a Cache TTL ([#138](https://github.com/prologic/twtxt/issues/138))
+* Add more candidates to GetExxternalAvatar()  and rearrange preferences
+* Add a db.Merge() call after startupJobs() to free memory on database compaction possibly after some cleanup jobs
+* Add a GenerateAvatar() func and use github.com/nullrocks/identicon for identicons
+* Add loading=lazy attr to all images to lazy load images on supported browsers
+* Add post form to external profile view
+* Add improved external feed integration
+* Add .gitkeep files for data directory layout
+* Add missing HEAD handler for /externa/:slug/avatar
+* Add support for WebP image format ([#130](https://github.com/prologic/twtxt/issues/130))
+* Add tooling to combined and minify all static css/js assets into a single file and request (boosting load times)
+* Add external avatar to /external view
+* Add support for fetching, caching and displaying external avatars
+* Add /robots.txt view
+* Add post form on profile view and puts profile links in a 2nd column
+* Add user preferences for theme in /settings view
+* Add target=_blank to Config/Twtxt/Atom Profile Links
+* Add link to user config on /settings view
+* Add server_info metric with version information
+* Add Grafana Dashbaord
+* Add /user/:nick/config.yaml handler (Closes [#36](https://github.com/prologic/twtxt/issues/36))
+* Add debug-only memory profiler to debug some memory bloat
+* Add a Uploading to the Upload button tooltip when its processing the media
+* Add a paper-plance icon to the Post button
+* Add profile links to /settings view to be consistent with the profile view
+
+### Updates
+
+* Update abuse.md
+* Update about.md
+* Update Grafana Dashboard
+* Update Grafana Dashboard
+* Update Grafana Dashboard
+* Update Grafana Dashboard
+* Update Grafana Dashboard
+* Update Grafana Dashboard
+* Update Grafana Dashboard
+* Update Grafana Dashboard
+* Update Grafana Dashboard
+* Update Grafana Dashboard
+* Update README.md
+* Update AUTHORS ([#131](https://github.com/prologic/twtxt/issues/131))
+* Update Grafana Dashboards and make all panels transparent
+* Update Grafana Dashbaord with fixed Go Memory panel
+* Update Grafana Dashbaord
+* Update README.md
+* Update README.md
+
+
 <a name="0.1.0"></a>
 ## [0.1.0](https://github.com/prologic/twtxt/compare/0.0.12...0.1.0) (2020-08-19)
 
@@ -71,6 +320,7 @@
 
 ### Updates
 
+* Update CHANGELOG for 0.1.0
 * Update CHANGELOG for 0.0.13
 * Update README.md
 * Update README gif ([#121](https://github.com/prologic/twtxt/issues/121))
